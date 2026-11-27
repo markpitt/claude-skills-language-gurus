@@ -2,10 +2,10 @@
 
 # typescript-guru
 
-Enforces TypeScript 5.9 best practices when writing, reviewing, or refactoring TypeScript code. Use when the user asks for TypeScript setup, tsconfig guidance, type-system design, Node or bundler module configuration, testing, linting, runtime validation, or migration from JavaScript. Covers strict compiler options, ESLint flat config with typescript-eslint, module-resolution correctness, Node native type-stripping limits, and security-focused handling of untrusted data. Do NOT use for non-TypeScript languages or generic architecture discussions without concrete TypeScript implementation details.
+Enforces TypeScript 7 best practices when writing, reviewing, or refactoring TypeScript code. Use when the user asks for TypeScript setup, tsconfig guidance, type-system design, Node or bundler module configuration, testing, linting, runtime validation, or migration from JavaScript. Covers the TypeScript 7 native compiler and its migration from 6, strict compiler options, ESLint flat config with typescript-eslint, module-resolution correctness, Node native type-stripping limits, and security-focused handling of untrusted data. Do NOT use for non-TypeScript languages or generic architecture discussions without concrete TypeScript implementation details.
 
 - **Entry point:** [SKILL.md](SKILL.md)
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Licence:** Apache-2.0, see [LICENSE](LICENSE)
 
 ## Install
@@ -34,4 +34,4 @@ Loaded on demand, not up front. SKILL.md routes to them.
 ## Part of a larger set
 
 One of the Language gurus skills (`claude-skills-language-gurus`). See the [group's list](../../README.md),
-or every group in [claude-skills](https://github.com/markpitt/claude-skills).
+or every group in [claude-skills](https://markpitt.dev/claude-skills/).

@@ -6,7 +6,7 @@
 - Linting: `eslint` + `typescript-eslint`
 - Formatting: dedicated formatter (`prettier` or `dprint`)
 - Unit testing: `vitest`
-- E2E/browser testing: `@playwright/test` when browser behavior is relevant
+- E2E/browser testing: `@playwright/test` when browser behaviour is relevant
 
 ## Linting and formatting separation
 

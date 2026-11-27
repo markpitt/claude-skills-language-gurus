@@ -2,10 +2,10 @@
 
 # pwsh-guru
 
-Enforces PowerShell 7.5+ best practices when writing, reviewing, or refactoring PowerShell scripts and modules. Use when the user asks for PowerShell scripting help, advanced function design, module packaging, script linting/testing, security hardening, or automation reliability. Covers CmdletBinding and ShouldProcess patterns, approved verbs, PSScriptAnalyzer, Pester 5, PSResourceGet, and stream-aware output design. Do NOT use for non-PowerShell languages or generic infrastructure discussions without concrete PowerShell implementation details.
+Enforces PowerShell 7.6 best practices when writing, reviewing, or refactoring PowerShell scripts and modules. Use when the user asks for PowerShell scripting help, advanced function design, module packaging, script linting/testing, security hardening, or automation reliability. Covers CmdletBinding and ShouldProcess patterns, approved verbs, PSScriptAnalyzer, Pester 5, PSResourceGet, and stream-aware output design. Do NOT use for non-PowerShell languages or generic infrastructure discussions without concrete PowerShell implementation details.
 
 - **Entry point:** [SKILL.md](SKILL.md)
-- **Version:** 1.0.0
+- **Version:** 1.1.0
 - **Licence:** Apache-2.0, see [LICENSE](LICENSE)
 
 ## Install
@@ -34,4 +34,4 @@ Loaded on demand, not up front. SKILL.md routes to them.
 ## Part of a larger set
 
 One of the Language gurus skills (`claude-skills-language-gurus`). See the [group's list](../../README.md),
-or every group in [claude-skills](https://github.com/markpitt/claude-skills).
+or every group in [claude-skills](https://markpitt.dev/claude-skills/).

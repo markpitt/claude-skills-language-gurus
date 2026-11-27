@@ -3,7 +3,7 @@ name: shell-guru
 description: Enforces current shell scripting best practices when writing, reviewing, or refactoring Bash/POSIX sh scripts. Use when the user asks for shell scripting help, Bash/sh code review, idiomatic shell patterns, script portability, debugging, or security guidance. Covers safety options (set -Eeuo pipefail), quoting rules, arrays, error handling, testing (bats-core), tooling (shellcheck, shfmt), security, and anti-pattern elimination. Do NOT use for general system administration tasks unrelated to shell script authorship.
 license: Apache-2.0
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
 ---
 
 # Shell Guru

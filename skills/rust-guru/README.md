@@ -5,7 +5,7 @@
 Enforces current Rust best practices when writing, reviewing, or refactoring Rust code. Use when the user asks for Rust help, crate/project setup, ownership and borrowing guidance, async/concurrency patterns (Tokio), error handling, performance tuning, testing, or unsafe-code review. Covers rustup/cargo tooling, current stable-edition idioms, Result-first error handling, Clippy/rustfmt quality gates, property testing, and security hardening. Do NOT use for non-Rust languages or generic architecture discussions without concrete Rust implementation details.
 
 - **Entry point:** [SKILL.md](SKILL.md)
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Licence:** Apache-2.0, see [LICENSE](LICENSE)
 
 ## Install
@@ -36,4 +36,4 @@ Loaded on demand, not up front. SKILL.md routes to them.
 ## Part of a larger set
 
 One of the Language gurus skills (`claude-skills-language-gurus`). See the [group's list](../../README.md),
-or every group in [claude-skills](https://github.com/markpitt/claude-skills).
+or every group in [claude-skills](https://markpitt.dev/claude-skills/).

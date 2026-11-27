@@ -1,8 +1,8 @@
 # Performance and Observability
 
-## Evidence-driven optimization
+## Evidence-driven optimisation
 
-- Optimize only after measurement.
+- Optimise only after measurement.
 - Start with representative benchmarks and production-like profiles.
 - Use `pprof` for CPU/memory/contention analysis before code changes.
 
@@ -15,7 +15,7 @@
 ## Profiling and PGO
 
 - Profile real workloads, not synthetic edge-only traces.
-- Use Profile-Guided Optimization where appropriate (`default.pgo` or `-pgo`)
+- Use Profile-Guided Optimisation where appropriate (`default.pgo` or `-pgo`)
   and keep profiles representative of production behavior.
 
 ## Structured logging and signals

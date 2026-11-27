@@ -2,7 +2,7 @@
 
 Shell script security: injection prevention, input validation, temp file
 safety, secrets management, and privilege hygiene. Shell scripts are
-particularly vulnerable to injection — treat all external input as hostile.
+particularly vulnerable to injection: treat all external input as hostile.
 
 ## Table of Contents
 
@@ -49,7 +49,7 @@ else
 fi
 ```
 
-### `eval` — avoid almost always
+### `eval`: avoid almost always
 
 `eval` re-parses its argument as shell code. Only use it when there is
 **no other way** and input is fully controlled and validated.

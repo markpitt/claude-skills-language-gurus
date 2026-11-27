@@ -1,20 +1,20 @@
 # Tooling Reference
 
 Modern shell scripting toolchain as of 2026. Every tool is authoritative in
-its role — use all of them together for a professional-grade shell project.
+its role: use all of them together for a professional-grade shell project.
 
 ## Table of Contents
 
-1. [shellcheck — Static Analysis](#shellcheck)
-2. [shfmt — Formatter](#shfmt)
-3. [bats-core — Test Runner](#bats-core)
-4. [mise — Runtime & Task Runner](#mise)
+1. [shellcheck: Static Analysis](#shellcheck)
+2. [shfmt: Formatter](#shfmt)
+3. [bats-core: Test Runner](#bats-core)
+4. [mise: Runtime & Task Runner](#mise)
 5. [pre-commit Integration](#pre-commit)
 6. [CI: GitHub Actions](#ci-github-actions)
 
 ---
 
-## shellcheck — Static Analysis
+## shellcheck: Static Analysis
 
 Replaces: manual code review for quoting, scoping, and portability bugs.
 
@@ -52,7 +52,7 @@ source-path=SCRIPTDIR
 ```
 
 `source-path=SCRIPTDIR` tells shellcheck to look for sourced files relative to
-the script being checked — useful when scripts do `source "$(dirname "$0")/lib/helper.bash"`.
+the script being checked: useful when scripts do `source "$(dirname "$0")/lib/helper.bash"`.
 
 ### Disabling Rules
 
@@ -86,7 +86,7 @@ cmd_with_intentional_splitting  # shellcheck disable=SC2086
 
 ---
 
-## shfmt — Formatter
+## shfmt: Formatter
 
 Replaces: manual style decisions, inconsistent indentation, tab/space debates.
 
@@ -134,7 +134,7 @@ insert_final_newline = true
 
 ---
 
-## bats-core — Test Runner
+## bats-core: Test Runner
 
 Replaces: ad hoc manual testing, shell script unit tests written in bash.
 
@@ -181,7 +181,7 @@ load 'test_helper/bats-file/load'
 
 ---
 
-## mise — Runtime & Task Runner
+## mise: Runtime & Task Runner
 
 Replaces: `make`, `Makefile`, manual tool version management.
 

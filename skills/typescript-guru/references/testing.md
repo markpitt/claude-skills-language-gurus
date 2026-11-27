@@ -16,7 +16,7 @@
 ## Browser/e2e baseline
 
 - Use Playwright for cross-browser flow validation.
-- Favor locator-based assertions and built-in auto-wait behavior.
+- Favour locator-based assertions and built-in auto-wait behavior.
 - Keep tests independent; avoid serial mode unless unavoidable.
 - Use worker limits strategically in CI.
 

@@ -18,7 +18,7 @@ or user input is untrusted until validated.
   output types.
 - Keep secrets and deploy-specific config in environment variables.
 - Reject dynamic code execution patterns on untrusted input.
-- Use parameterized query APIs in data access layers.
+- Use parameterised query APIs in data access layers.
 
 ## Example
 

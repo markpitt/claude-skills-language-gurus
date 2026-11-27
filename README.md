@@ -9,7 +9,7 @@ Current best practice for Python, TypeScript, Rust, Go, shell and PowerShell.
 
 One family with one shape: each skill enforces current practice for its language. `dotnet-guru` is the seventh member and lives in [claude-skills-dotnet](https://github.com/markpitt/claude-skills-dotnet).
 
-This is one of seven skill groups. [claude-skills](https://github.com/markpitt/claude-skills) lists them all and
+This is one of seven skill groups. [claude-skills](https://markpitt.dev/claude-skills/) lists them all and
 holds the shared tooling: validation, packaging, the evaluation harness and the TUI.
 
 ## Skills
@@ -17,12 +17,12 @@ holds the shared tooling: validation, packaging, the evaluation harness and the 
 <!-- BEGIN GENERATED SKILL INDEX -->
 | Skill | Bundled files | What it does |
 |---|---|---|
-| [golang-guru](skills/golang-guru/SKILL.md) | 6 files | Enforces Go 1.26 best practices when writing, reviewing, or refactoring Go code. |
-| [pwsh-guru](skills/pwsh-guru/SKILL.md) | 6 files | Enforces PowerShell 7.5+ best practices when writing, reviewing, or refactoring PowerShell scripts and… |
+| [golang-guru](skills/golang-guru/SKILL.md) | 6 files | Enforces Go 1.27 best practices when writing, reviewing, or refactoring Go code. |
+| [pwsh-guru](skills/pwsh-guru/SKILL.md) | 6 files | Enforces PowerShell 7.6 best practices when writing, reviewing, or refactoring PowerShell scripts and modules. |
 | [python-guru](skills/python-guru/SKILL.md) | 6 files | Enforces Python 3.12+ best practices when writing, reviewing, or refactoring Python code. |
 | [rust-guru](skills/rust-guru/SKILL.md) | 8 files | Enforces current Rust best practices when writing, reviewing, or refactoring Rust code. |
 | [shell-guru](skills/shell-guru/SKILL.md) | 5 files | Enforces current shell scripting best practices when writing, reviewing, or refactoring Bash/POSIX sh scripts. |
-| [typescript-guru](skills/typescript-guru/SKILL.md) | 6 files | Enforces TypeScript 5.9 best practices when writing, reviewing, or refactoring TypeScript code. |
+| [typescript-guru](skills/typescript-guru/SKILL.md) | 6 files | Enforces TypeScript 7 best practices when writing, reviewing, or refactoring TypeScript code. |
 
 6 skills.
 <!-- END GENERATED SKILL INDEX -->

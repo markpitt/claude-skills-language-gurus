@@ -9,7 +9,7 @@
 ## Leak and deadlock prevention
 
 - Define who owns channel close responsibility; avoid ambiguous ownership.
-- Ensure goroutines can exit: avoid blocking sends/receives with no cancellation
+- Make sure goroutines can exit: avoid blocking sends/receives with no cancellation
   path.
 - Use `select` with `ctx.Done()` where blocking operations are possible.
 - Prefer structured coordination (`errgroup` patterns or equivalent) over

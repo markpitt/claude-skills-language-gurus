@@ -16,8 +16,8 @@ Use async for concurrency where I/O latency dominates, with clear shutdown and c
 
 ## Cancellation and Shutdown
 
-- Design cancellation as a first-class behavior (timeouts, cancellation tokens, shutdown signals).
-- Ensure spawned tasks are joined, aborted intentionally, or supervised.
+- Design cancellation as a first-class behaviour (timeouts, cancellation tokens, shutdown signals).
+- Make sure spawned tasks are joined, aborted intentionally, or supervised.
 - Avoid leaking detached background tasks.
 
 ## Common Mistakes

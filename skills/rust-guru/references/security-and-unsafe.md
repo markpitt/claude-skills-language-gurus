@@ -5,7 +5,7 @@ Rust improves memory safety by default, but secure outcomes still require discip
 ## Unsafe Policy
 
 - Use `unsafe` only when safe Rust cannot express required behavior.
-- Minimize unsafe block scope.
+- Minimise unsafe block scope.
 - Document safety invariants adjacent to each unsafe block.
 - Encapsulate unsafe internals behind safe APIs.
 

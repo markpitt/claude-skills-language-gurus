@@ -15,7 +15,7 @@
 ## Reliability
 
 - Use `BeforeAll`/`BeforeEach` for setup symmetry and clarity.
-- Ensure tests pass in clean sessions (no hidden global-state assumptions).
+- Make sure tests pass in clean sessions (no hidden global-state assumptions).
 - Keep failures actionable with precise assertion messages.
 
 ## CI

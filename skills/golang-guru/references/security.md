@@ -8,7 +8,7 @@
 
 ## Input and data handling
 
-- Use parameterized SQL queries/placeholders.
+- Use parameterised SQL queries/placeholders.
 - Do not build SQL with `fmt.Sprintf` or string concatenation.
 - Validate/parse untrusted input with explicit error handling paths.
 

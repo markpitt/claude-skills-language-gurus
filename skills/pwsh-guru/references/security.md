@@ -5,7 +5,7 @@
 - Execution policy is a safety feature, not a full security boundary.
 - Enforcement semantics differ by platform.
 - On non-Windows, the reported default is `Unrestricted` and policy changes via
-  `Set-ExecutionPolicy` are not supported; behavior effectively maps to
+  `Set-ExecutionPolicy` are not supported; behaviour effectively maps to
   `Bypass` semantics because Windows Security Zones aren't implemented.
 
 ## Script Signing
@@ -20,7 +20,7 @@
 
 - Never embed plaintext secrets in scripts or repos.
 - Prefer secret abstractions and secure stores (for example SecretManagement).
-- Favor certificate-based, managed identity, or integrated auth when possible.
+- Favour certificate-based, managed identity, or integrated auth when possible.
 - For repository publishing workflows, avoid plaintext API keys/PATs in script
   source; retrieve secrets at runtime from a vault.
 
@@ -30,7 +30,7 @@
 - Building command strings from user data and executing them.
 - Storing credentials in source or verbose logs.
 
-## Logging and Defense in Depth
+## Logging and Defence in Depth
 
 - Use module/script block logging in managed environments where required.
 - Treat AMSI, constrained language mode, and application control policies as

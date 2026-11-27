@@ -25,9 +25,9 @@
 - Use validation attributes (`ValidateSet`, `ValidatePattern`,
   `ValidateNotNullOrEmpty`, `ValidateRange`) where appropriate.
 - Keep switch parameters non-mandatory unless they distinguish parameter sets.
-- Use pipeline binding only when behavior is clear and predictable.
+- Use pipeline binding only when behaviour is clear and predictable.
 
-## Output Behavior
+## Output Behaviour
 
 - Output rich objects to the success stream.
 - Use stream-specific messages for diagnostics:

@@ -3,7 +3,7 @@
 Modern Python tooling stack as of 2026. Every component is a replacement
 for one or more legacy tools.
 
-## uv — Package and Project Manager
+## uv: Package and Project Manager
 
 Replaces: `pip`, `pip-tools`, `virtualenv`, `venv`, `pyenv`, `poetry`, `pipx`, `pipenv`
 
@@ -48,8 +48,8 @@ uv run script.py
 ```
 
 ### Lockfile policy
-- **Applications** (deployed services, CLIs): commit `uv.lock` — reproducible installs
-- **Libraries** (published to PyPI): add `uv.lock` to `.gitignore` — consumers pin their own
+- **Applications** (deployed services, CLIs): commit `uv.lock`. Reproducible installs
+- **Libraries** (published to PyPI): add `uv.lock` to `.gitignore`. Consumers pin their own
 
 ### CI pattern
 ```yaml
@@ -60,7 +60,7 @@ uv run script.py
 
 ---
 
-## ruff — Linter and Formatter
+## ruff: Linter and Formatter
 
 Replaces: `black`, `isort`, `flake8`, `pylint`, `pyupgrade`, `autoflake`, `bandit` (partial)
 
@@ -82,7 +82,7 @@ select = [
     "UP",   # pyupgrade (modernise syntax — Optional → X|None etc.)
     "SIM",  # flake8-simplify
     "TID",  # flake8-tidy-imports (ban relative imports, etc.)
-    "TCH",  # flake8-type-checking (move type-only imports to TYPE_CHECKING)
+    "TC",  # flake8-type-checking (move type-only imports to TYPE_CHECKING)
     "RUF",  # ruff-specific rules (misc quality)
     "PT",   # flake8-pytest-style
     "S",    # flake8-bandit (security)
@@ -125,14 +125,14 @@ uv run ruff format --check . # CI format check
 |---|---|
 | `UP` | `Optional[X]` → `X\|None`, `List[int]` → `list[int]`, old-style unions |
 | `B` | Mutable defaults, `assert False`, bare `raise`, loop variable issues |
-| `TCH` | Imports only needed for type hints (should be in `TYPE_CHECKING`) |
+| `TC` | Imports only needed for type hints (should be in `TYPE_CHECKING`) |
 | `S` | `subprocess` with shell, `eval`, hardcoded secrets, weak crypto |
 | `PERF` | List comp passed to sum/any/all, `+=` string loop |
 | `ERA` | Commented-out code left in codebase |
 
 ---
 
-## pyright — Type Checker
+## pyright: Type Checker
 
 Replaces: `mypy` (primary), faster and better support for new PEPs
 
@@ -160,10 +160,10 @@ Or `pyrightconfig.json` (for editor integration):
 ```
 
 ### Strictness levels
-- `"off"` — no checks (useless)
-- `"basic"` — catches obvious errors
-- `"standard"` — **recommended default** — catches most real bugs
-- `"strict"` — requires full annotations everywhere; good for new greenfield code
+- `"off"`: no checks (useless)
+- `"basic"`: catches obvious errors
+- `"standard"`, **recommended default**, catches most real bugs
+- `"strict"`: requires full annotations everywhere; good for new greenfield code
 
 ### mypy vs pyright
 
@@ -177,7 +177,7 @@ Or `pyrightconfig.json` (for editor integration):
 
 ---
 
-## mise — Runtime and Task Runner
+## mise: Runtime and Task Runner
 
 Replaces: `nvm`, `asdf`, `direnv` (partially), `make`, `invoke`, `tox`
 

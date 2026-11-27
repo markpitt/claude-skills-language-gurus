@@ -22,7 +22,7 @@ def test_create_user_default_active() -> None:
     assert user.is_active is True
 ```
 
-### Parametrize — don't write repeated tests
+### Parametrize: don't write repeated tests
 
 ```python
 import pytest
@@ -42,7 +42,7 @@ def test_is_blank(value: str | None) -> None:
     assert is_blank(value) is True
 ```
 
-### Fixtures — dependency injection over setup/teardown
+### Fixtures: dependency injection over setup/teardown
 
 ```python
 import pytest
@@ -123,7 +123,7 @@ markers = [
 
 ---
 
-## Hypothesis — Property-Based Testing
+## Hypothesis: Property-Based Testing
 
 Use whenever a function accepts unconstrained input. Hypothesis finds edge cases
 that `parametrize` never covers.
@@ -222,7 +222,7 @@ tests/
     └── test_api.py
 ```
 
-### conftest.py — shared fixtures and configuration
+### conftest.py: shared fixtures and configuration
 
 ```python
 # tests/conftest.py

@@ -28,7 +28,7 @@ for verification.
 ## Execution Policy and Security
 
 - Execution policy is a safety feature, not a security boundary.
-- On non-Windows, policy changes are unsupported and behavior effectively maps to
+- On non-Windows, policy changes are unsupported and behaviour effectively maps to
   bypass-like semantics.
   - Source: `about_Execution_Policies`
   - URL: <https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.5>

@@ -1,6 +1,6 @@
 # Testing Reference
 
-Modern shell script testing with bats-core. No ad hoc manual testing — every
+Modern shell script testing with bats-core. No ad hoc manual testing: every
 non-trivial script has automated tests that run in CI.
 
 ## Table of Contents
@@ -48,9 +48,9 @@ load 'test_helper/bats-assert/load'
 ```
 
 `run` executes a command and captures:
-- `$status` — exit code
-- `$output` — combined stdout + stderr
-- `$lines` — array of output lines: `${lines[0]}`, `${lines[1]}`, etc.
+- `$status`: exit code
+- `$output`: combined stdout + stderr
+- `$lines`: array of output lines: `${lines[0]}`, `${lines[1]}`, etc.
 
 Without bats-assert, use plain test expressions:
 
@@ -465,7 +465,7 @@ jobs:
 |---|---|
 | `run cmd; echo "$output"` to debug | Use `assert_output` properly; use `bats --tap` for verbose output during development |
 | Testing implementation details (checking temp filenames) | Test observable behaviour (outputs, exit codes, side effects) |
-| No `setup`/`teardown` — shared state between tests | Isolate each test with per-test `setup` creating fresh fixtures |
+| No `setup`/`teardown`: shared state between tests | Isolate each test with per-test `setup` creating fresh fixtures |
 | Hardcoded paths in tests | Use `$BATS_TEST_DIRNAME`, `$BATS_TMPDIR` |
 | Tests that require network (in unit tests) | Mock external commands; separate e2e tests |
 | Brittle full output match: `assert_output "line1\nline2\nline3"` | Match specific lines: `assert_line --index 0 "line1"` |

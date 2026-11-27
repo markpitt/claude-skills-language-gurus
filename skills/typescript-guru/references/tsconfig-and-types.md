@@ -39,7 +39,7 @@ Start with:
 
 ## Notes on generated defaults
 
-Recent `tsc --init` templates favor stricter defaults and minimal config,
+Recent `tsc --init` templates favour stricter defaults and minimal config,
 including strictness and module-related options. Treat generated templates as
 starting points, not final architecture.
 

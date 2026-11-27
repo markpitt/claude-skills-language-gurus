@@ -1,13 +1,13 @@
 # Anti-Patterns Catalogue
 
-Comprehensive list of Python anti-patterns, each with a fix. Most are caught
-automatically by `ruff` — the relevant rule code is noted where applicable.
+Full list of Python anti-patterns, each with a fix. Most are caught
+automatically by `ruff`: the relevant rule code is noted where applicable.
 
 ---
 
 ## Type Annotation Anti-Patterns
 
-### `Optional[X]` — use `X | None` (ruff `UP007`)
+### `Optional[X]`: use `X | None` (ruff `UP007`)
 ```python
 # BAD
 from typing import Optional
@@ -17,7 +17,7 @@ def greet(name: Optional[str]) -> Optional[str]: ...
 def greet(name: str | None) -> str | None: ...
 ```
 
-### `Union[A, B]` — use `A | B` (ruff `UP007`)
+### `Union[A, B]`: use `A | B` (ruff `UP007`)
 ```python
 # BAD
 from typing import Union
@@ -27,7 +27,7 @@ def process(x: Union[int, str, float]) -> Union[str, bytes]: ...
 def process(x: int | str | float) -> str | bytes: ...
 ```
 
-### `List`, `Dict`, `Tuple` from `typing` — use built-ins (ruff `UP006`)
+### `List`, `Dict`, `Tuple` from `typing`: use built-ins (ruff `UP006`)
 ```python
 # BAD
 from typing import List, Dict, Tuple, Set, FrozenSet
@@ -37,7 +37,7 @@ def sort(items: List[int]) -> List[int]: ...
 def sort(items: list[int]) -> list[int]: ...
 ```
 
-### `TypeVar` module-level variable — use inline params (3.12+)
+### `TypeVar` module-level variable: use inline params (3.12+)
 ```python
 # BAD
 from typing import TypeVar, Generic
@@ -48,7 +48,7 @@ def first(items: list[T]) -> T: ...
 def first[T](items: list[T]) -> T: ...
 ```
 
-### Using `type(x) is` — use `isinstance` (ruff `E721`)
+### Using `type(x) is`: use `isinstance` (ruff `E721`)
 ```python
 # BAD — doesn't work with subclasses
 if type(x) is list: ...
@@ -87,7 +87,7 @@ class Config:
 
 ## Exception Handling Anti-Patterns
 
-### Bare `except` — always be specific
+### Bare `except`: always be specific
 ```python
 # BAD — catches SystemExit, KeyboardInterrupt, GeneratorExit
 try:
@@ -108,7 +108,7 @@ except json.JSONDecodeError as e:
     raise ValidationError("body", f"Invalid JSON") from e
 ```
 
-### Silent swallowing — always log or raise
+### Silent swallowing: always log or raise
 ```python
 # BAD
 try:
@@ -278,7 +278,7 @@ from module import *
 # GOOD — explicit imports with __all__ in the source module
 from my_package.user import User, create_user
 
-# GOOD — type-only imports in TYPE_CHECKING block (ruff TCH001/TCH002/TCH003)
+# GOOD — type-only imports in TYPE_CHECKING block (ruff TC001/TC002/TC003)
 from __future__ import annotations
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:

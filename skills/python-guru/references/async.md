@@ -7,7 +7,7 @@ default; unstructured (`gather`, `create_task` without tracking) is a code smell
 
 ## Core Rules
 
-1. **Always start with `asyncio.run()`** — never `loop.run_until_complete()`
+1. **Always start with `asyncio.run()`**: never `loop.run_until_complete()`
 2. **Prefer `TaskGroup` over `gather()`** for concurrent tasks
 3. **Use `asyncio.timeout()` context manager** over `wait_for()`
 4. **Always re-raise `CancelledError`** after cleanup
@@ -16,7 +16,7 @@ default; unstructured (`gather`, `create_task` without tracking) is a code smell
 
 ---
 
-## TaskGroup — Structured Concurrency (3.11+)
+## TaskGroup: Structured Concurrency (3.11+)
 
 ```python
 import asyncio
@@ -52,7 +52,7 @@ except* httpx.HTTPError as eg:
 ```
 
 **Rule:** All exceptions from `TaskGroup` arrive as `ExceptionGroup`. Use `except*` (3.11+)
-to handle them — never `except Exception` which would catch the entire group at once.
+to handle them: never `except Exception` which would catch the entire group at once.
 
 ---
 
@@ -95,7 +95,7 @@ except asyncio.TimeoutError:
 
 ---
 
-## Cancellation — Never Swallow CancelledError
+## Cancellation: Never Swallow CancelledError
 
 ```python
 # CORRECT: always re-raise after cleanup
@@ -192,8 +192,8 @@ async def limited_fetch(url: str) -> bytes:
 
 | Use case | Recommendation |
 |---|---|
-| Application code | `asyncio` directly — no extra dependency |
-| Library code that must be backend-agnostic | `anyio` — works with asyncio and trio |
+| Application code | `asyncio` directly: no extra dependency |
+| Library code that must be backend-agnostic | `anyio`: works with asyncio and trio |
 | Framework code (web servers, test runners) | Check if already uses anyio/trio |
 
 ```python

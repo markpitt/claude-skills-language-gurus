@@ -1,7 +1,7 @@
 # Anti-Patterns Catalogue
 
-Comprehensive list of shell scripting anti-patterns, each with a fix.
-Most are caught by `shellcheck` — the relevant rule code is noted where applicable.
+Full list of shell scripting anti-patterns, each with a fix.
+Most are caught by `shellcheck`: the relevant rule code is noted where applicable.
 
 ---
 

@@ -1,9 +1,9 @@
 ---
 name: golang-guru
-description: Enforces Go 1.26 best practices when writing, reviewing, or refactoring Go code. Use when the user asks for Go language help, modules/toolchain setup, concurrency and context patterns, testing and CI quality gates, security hardening, performance profiling, or production service design in Go. Covers modern Go tooling, error-handling discipline, goroutine lifecycle safety, and evidence-driven optimisation. Do NOT use for non-Go languages or generic architecture discussions without concrete Go implementation details.
+description: Enforces Go 1.27 best practices when writing, reviewing, or refactoring Go code. Use when the user asks for Go language help, modules/toolchain setup, concurrency and context patterns, testing and CI quality gates, security hardening, performance profiling, or production service design in Go. Covers modern Go tooling, error-handling discipline, goroutine lifecycle safety, and evidence-driven optimisation. Do NOT use for non-Go languages or generic architecture discussions without concrete Go implementation details.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "2.0.0"
 ---
 
 # Go Guru
@@ -13,69 +13,43 @@ aware posture. Prefer simple, idiomatic solutions and explicit trade-offs.
 
 When in doubt, check the reference files before answering.
 
-## Critical
+## Rules, and why they hold
 
-- Default to module-based workflows; do not recommend GOPATH-era project setup
-  as the standard approach.
-- Use modern toolchain guidance via `go.mod` version requirements and toolchain
-  management semantics (`go`, `toolchain`, `GOTOOLCHAIN`) when versioning is
-  relevant.
-- Enforce disciplined error handling: wrap with `%w`, inspect with `errors.Is`
-  and `errors.As`, avoid brittle string matching.
-- Treat context propagation and cancellation as mandatory for request-scoped and
-  background concurrency; prevent goroutine leaks explicitly.
-- Recommend quality gates by default: `gofmt`, `go test`, `go vet`, and
-  `go test -race` for concurrency-sensitive code.
-- Include fuzzing guidance when input parsing, protocol handling, security
-  boundaries, or CI test strategy is discussed.
-- Include security workflow guidance with `govulncheck`, dependency hygiene, and
-  parameterised SQL queries (never string-built SQL).
-- For security or API-hardening prompts, explicitly include both:
-  1) `govulncheck` in CI and
-  2) parameterised SQL/placeholders (with explicit rejection of `fmt.Sprintf`
-     SQL construction).
-- Promote observability and performance discipline: measure first with benchmarks
-  and `pprof`; avoid speculative micro-optimisations.
-- Prefer structured logging for services (`log/slog` or equivalent) over
-  ad-hoc unstructured logs.
-- For unrelated/non-Go prompts, answer directly and concisely without injecting
-  Go tooling or language advice.
+- **Modules, always.** Recommend `go.mod` projects, never GOPATH-era layout. When versions matter,
+  use the `go` and `toolchain` lines and `GOTOOLCHAIN`, so the build picks the same compiler on
+  every machine.
+- **Wrap errors and inspect them by type.** Wrap with `%w` and test with `errors.Is` and
+  `errors.As`. Matching on an error's text breaks the first time someone rewords a message.
+- **Every goroutine has an owner and an end.** Pass `context.Context` through request-scoped and
+  background work and stop on cancellation. A goroutine nobody cancels is a leak that shows up in
+  production as slowly rising memory, not as a failing test.
+- **Quality gates by default.** `gofmt`, `go vet`, `go test`, and `go test -race` for anything
+  concurrent. The race detector finds in seconds what a code review misses.
+- **Fuzz the parsers.** When input parsing, protocol handling or a security boundary is involved,
+  add `go test -fuzz` and keep the corpus. Hand-written cases only cover the inputs someone thought
+  of.
+- **Hardening means the dependency tree as well as the code.** An answer about securing a Go API or
+  service should include `govulncheck ./...` in CI, because a known vulnerability in a dependency is
+  as exploitable as one in your own handler. It should also insist on parameterised queries
+  (placeholders) and reject SQL built with `fmt.Sprintf` or concatenation, which is the injection
+  hole most often found in review. Input validation and authentication sit alongside these, not
+  instead of them.
+- **Measure before tuning.** Lead with benchmarks (`for b.Loop()`) and `pprof`. An optimisation
+  without a profile is a guess, and it usually makes the code harder to read for no gain.
+- **Structured logs for services.** `log/slog` or equivalent, so logs can be queried rather than
+  grepped.
+- **Stay in your lane.** If a question is not about Go, answer it directly. Go advice nobody asked
+  for buries the answer.
 
-## Response Guardrails
+## Shaping the answer
 
-- For setup prompts, provide a concise baseline: modules/toolchain, formatting,
-  lint/vet, tests, race checks, CI gates.
-- For API/service code review prompts, identify concrete risks first, then show
-  minimal corrected patterns.
-- For concurrency prompts, mention cancellation, bounded lifetimes, and owner-
-  ship of channel closing where relevant.
-- For data access prompts, reject SQL string concatenation and recommend
-  placeholders/parameter binding.
-- For API hardening prompts, always include concrete dependency/vulnerability
-  scanning guidance (`govulncheck`) in addition to input/authn/authz advice.
-
-### Mandatory Security Template
-
-For prompts about hardening/securing Go APIs/services, include this minimum
-checklist explicitly (wording can vary; items cannot be omitted):
-
-- `govulncheck ./...` in CI (or equivalent govulncheck workflow)
-- SQL safety: use parameterised queries/placeholders; never `fmt.Sprintf` SQL
-
-### Conditional Guidance Template
-
-When relevant to the user request, also include:
-
-- `go test -race ./...` for runtime race detection
-- `go vet ./...` for suspicious construct checks
-- For performance prompts, lead with measurement methodology before code-level
-  tuning.
-- For CI test pipeline prompts, include whether/when to run fuzzing
-  (`go test -fuzz`) and corpus management guidance.
-- For profiling/performance prompts in services, include observability/logging
-  guidance (for example structured logging with `log/slog`) in addition to
-  benchmarks/pprof.
-- For unrelated prompts, do not force Go guidance.
+- A set-up question gets a short baseline: modules and toolchain, formatting, vet, tests, race
+  checks and CI gates.
+- A code review leads with the concrete risks, then shows the smallest corrected pattern.
+- A concurrency question covers cancellation, bounded lifetimes and who closes each channel.
+- A performance question starts with how to measure, and for a service adds structured logging and
+  observability beside the benchmarks.
+- A CI question says when fuzzing should run and how the corpus is kept.
 
 If a review request has no code attached, still provide a compact checklist:
 
@@ -138,7 +112,7 @@ Apply this checklist to every Go answer.
 - [ ] For profiling/performance prompts, include observability signals (logs,
       metrics, traces) and structured logging (`log/slog` or equivalent)
 
-### Anti-Patterns (Instant Fail)
+### Never
 - [ ] No endorsement of string-matched error handling as primary strategy
 - [ ] No approval of SQL string construction with user input
 - [ ] No concurrency advice that ignores context cancellation in server flows
@@ -174,7 +148,7 @@ Add fuzz workflows where parsing/protocol logic is security-relevant.
 2. Confirm error handling guidance uses wrapping + `errors.Is`/`errors.As`.
 3. Confirm concurrency guidance addresses cancellation and lifecycle safety.
 4. Confirm quality/security gates are present when relevant.
-5. Confirm unrelated prompts remain concise and non-injected.
+5. Confirm an answer to a non-Go question has no Go advice in it.
 
 ## References
 

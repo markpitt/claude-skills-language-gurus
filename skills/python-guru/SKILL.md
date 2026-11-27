@@ -3,7 +3,7 @@ name: python-guru
 description: Enforces Python 3.12+ best practices when writing, reviewing, or refactoring Python code. Use when the user asks for Python help, code review, idiomatic Python, Pythonic patterns, Python project setup, debugging, or performance advice. Covers modern tooling (uv, ruff, pyright), type system (PEP 695 generics, Protocol, TypeIs), async (TaskGroup, timeout), testing (pytest + Hypothesis), security, and anti-pattern elimination. Do NOT use for general software architecture unrelated to Python.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Python Guru
@@ -11,6 +11,13 @@ metadata:
 Enforce modern, idiomatic Python 3.12+ across every task. Never suggest
 deprecated patterns, legacy tooling, or outdated idioms. When in doubt,
 check the reference files before answering.
+
+Python 3.15 (9 October 2026) is the current release. The floor stays at 3.12
+because that is where PEP 695 type parameters and the `type` statement arrive,
+and they are used throughout. New projects should pin a current release
+(`uv python pin 3.14` or `3.15`). Code for 3.14 and later needs no
+`from __future__ import annotations`, because annotations are deferred by
+default.
 
 ## When to Use
 
@@ -33,8 +40,8 @@ Run through this for **every** block of Python code you write or review:
 
 ### Tooling
 - [ ] `uv` used for package/project management; no `pip install` directives in docs
-- [ ] `ruff` configured in `pyproject.toml` with `UP`, `B`, `SIM`, `TCH`, `S` rules enabled
-- [ ] `pyright` (not mypy) as primary type checker; `typeCheckingMode = "standard"` minimum
+- [ ] `ruff` configured in `pyproject.toml` with `UP`, `B`, `SIM`, `TC`, `S` rules enabled
+- [ ] `pyright` (not mypy) as primary type checker; `typeCheckingMode = "standard"` minimum. Astral's `ty` is faster but still in beta (0.0.x), so mention it as an option, not the default
 - [ ] All config in `pyproject.toml`; no `setup.py`, `setup.cfg`, `.flake8`, `mypy.ini`
 - [ ] `requires-python = ">=3.12"` set
 
@@ -85,7 +92,7 @@ Run through this for **every** block of Python code you write or review:
 
 ## Quick-Reference: Old → New
 
-| Old (pre-2024) | New (2026) |
+| Old | Current |
 |---|---|
 | `pip` + `virtualenv` + `pyenv` | `uv` |
 | `black` + `isort` + `flake8` | `ruff format` + `ruff check` |
@@ -137,7 +144,7 @@ requires-python = ">=3.12"
 target-version = "py312"
 
 [tool.ruff.lint]
-select = ["E","W","F","I","B","C4","UP","SIM","TCH","RUF","PT","S","ANN"]
+select = ["E","W","F","I","B","C4","UP","SIM","TC","RUF","PT","S","ANN"]
 ignore = ["ANN101","ANN102","ANN401"]
 
 [tool.pyright]

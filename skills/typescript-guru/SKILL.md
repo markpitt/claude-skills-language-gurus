@@ -1,15 +1,27 @@
 ---
 name: typescript-guru
-description: Enforces TypeScript 5.9 best practices when writing, reviewing, or refactoring TypeScript code. Use when the user asks for TypeScript setup, tsconfig guidance, type-system design, Node or bundler module configuration, testing, linting, runtime validation, or migration from JavaScript. Covers strict compiler options, ESLint flat config with typescript-eslint, module-resolution correctness, Node native type-stripping limits, and security-focused handling of untrusted data. Do NOT use for non-TypeScript languages or generic architecture discussions without concrete TypeScript implementation details.
+description: Enforces TypeScript 7 best practices when writing, reviewing, or refactoring TypeScript code. Use when the user asks for TypeScript setup, tsconfig guidance, type-system design, Node or bundler module configuration, testing, linting, runtime validation, or migration from JavaScript. Covers the TypeScript 7 native compiler and its migration from 6, strict compiler options, ESLint flat config with typescript-eslint, module-resolution correctness, Node native type-stripping limits, and security-focused handling of untrusted data. Do NOT use for non-TypeScript languages or generic architecture discussions without concrete TypeScript implementation details.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "2.0.0"
 ---
 
 # TypeScript Guru
 
 Enforce modern, production-grade TypeScript. Prefer strictness, explicit runtime
 boundaries, and platform-correct module configuration over convenience shortcuts.
+
+## Versions
+
+TypeScript 7.0 (8 July 2026) is the current release, and the first built on the Go-based native
+compiler: full builds run roughly eight to twelve times faster, and `tsc` is still the command.
+Options that 6.0 deprecated are now errors, among them `target: "es5"` and `baseUrl`, so fix the
+6.0 deprecation warnings before upgrading.
+
+7.0 has no stable programmatic API. That arrives in 7.1, in beta at the time of writing, and until
+then tools built on the compiler API, typescript-eslint among them, cannot run on 7. Install
+`@typescript/typescript6` beside it for those tools, and type-check with 7. Check the
+typescript-eslint release notes before saying it supports 7.
 
 ## Critical
 
@@ -25,11 +37,12 @@ boundaries, and platform-correct module configuration over convenience shortcuts
 - Always include CI quality gates: typecheck, lint, test.
 - Default to Vitest for TypeScript unit/integration test guidance unless the
   user explicitly asks for Jest compatibility.
-- When asked whether Node can run TypeScript directly, explicitly describe
-  built-in type stripping as lightweight support and state that full tsconfig-
-  aware transforms/workflows still require `tsc`, `tsx`, or bundler tooling.
-- For unrelated/non-TypeScript questions, answer directly in one concise line
-  and do not inject TypeScript guidance.
+- Node can run `.ts` files directly, but only by stripping the types. It does not read
+  `tsconfig`, type-check, or transform syntax such as enums and parameter properties, so a project
+  that relies on any of those still needs `tsc`, `tsx` or a bundler. Saying "Node runs TypeScript
+  now" without that caveat sends people into runtime errors.
+- If a question is not about TypeScript, answer it directly and briefly. TypeScript advice nobody
+  asked for buries the answer.
 
 ## Response Guardrails
 
@@ -43,8 +56,8 @@ boundaries, and platform-correct module configuration over convenience shortcuts
 - For module advice, ask or infer target runtime first:
   - App + bundler: `moduleResolution: "bundler"`
   - Node runtime output: `module: "nodenext"`
-- For `import type` questions, explicitly mention both `import type` usage and
-  `verbatimModuleSyntax: true`.
+- For `import type` questions, cover `verbatimModuleSyntax: true` as well as `import type`:
+  without it, the compiler may keep or drop an import differently from what the code says.
 - For API data handling, reject direct casts from unknown (`as Foo`) and provide
   runtime validation/narrowing patterns.
 - For migration/refactor tasks, prefer incremental strictness with measurable gates.
