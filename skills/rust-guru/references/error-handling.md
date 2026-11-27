@@ -22,5 +22,5 @@ Prefer explicit, composable failure handling.
 
 ## Panic Policy
 
-- Treat panic as bug-level or invariant-violation behavior, not user-input control flow.
+- Treat panic as bug-level or invariant-violation behaviour, not user-input control flow.
 - Do not panic on malformed/untrusted external input.

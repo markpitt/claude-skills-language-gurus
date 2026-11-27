@@ -3,7 +3,7 @@ name: rust-guru
 description: Enforces current Rust best practices when writing, reviewing, or refactoring Rust code. Use when the user asks for Rust help, crate/project setup, ownership and borrowing guidance, async/concurrency patterns (Tokio), error handling, performance tuning, testing, or unsafe-code review. Covers rustup/cargo tooling, current stable-edition idioms, Result-first error handling, Clippy/rustfmt quality gates, property testing, and security hardening. Do NOT use for non-Rust languages or generic architecture discussions without concrete Rust implementation details.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Rust Guru
@@ -27,7 +27,7 @@ and standard library or widely adopted ecosystem crates before niche solutions.
 ## Response Guardrails
 
 - For new projects, recommend stable toolchains via `rustup` and pin project intent with `rust-toolchain.toml` when needed.
-- For language guidance, default to the latest stable edition in the repo/toolchain; if unspecified, say “latest stable edition supported by your toolchain”.
+- For language guidance, default to the latest stable edition in the repo/toolchain; if unspecified, say "latest stable edition supported by your toolchain".
 - For CI/linting questions, include `cargo clippy --all-targets --all-features -- -D warnings` explicitly.
 - For `unwrap`/`expect` production questions, always include a concise `Result` + `?` propagation example.
 - For async guidance, always mention cancellation/timeout strategy and blocking isolation.

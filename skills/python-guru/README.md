@@ -5,7 +5,7 @@
 Enforces Python 3.12+ best practices when writing, reviewing, or refactoring Python code. Use when the user asks for Python help, code review, idiomatic Python, Pythonic patterns, Python project setup, debugging, or performance advice. Covers modern tooling (uv, ruff, pyright), type system (PEP 695 generics, Protocol, TypeIs), async (TaskGroup, timeout), testing (pytest + Hypothesis), security, and anti-pattern elimination. Do NOT use for general software architecture unrelated to Python.
 
 - **Entry point:** [SKILL.md](SKILL.md)
-- **Version:** 1.0.0
+- **Version:** 1.1.0
 - **Licence:** Apache-2.0, see [LICENSE](LICENSE)
 
 ## Install
@@ -34,4 +34,4 @@ Loaded on demand, not up front. SKILL.md routes to them.
 ## Part of a larger set
 
 One of the Language gurus skills (`claude-skills-language-gurus`). See the [group's list](../../README.md),
-or every group in [claude-skills](https://github.com/markpitt/claude-skills).
+or every group in [claude-skills](https://markpitt.dev/claude-skills/).

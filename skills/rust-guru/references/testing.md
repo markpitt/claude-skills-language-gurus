@@ -12,8 +12,8 @@ Build confidence with layered, deterministic testing.
 
 - Happy path + boundary cases.
 - Failure modes and error mappings.
-- Parsing and serialization of untrusted input.
-- Concurrency/cancellation behavior for async code.
+- Parsing and serialisation of untrusted input.
+- Concurrency/cancellation behaviour for async code.
 
 ## Tooling
 

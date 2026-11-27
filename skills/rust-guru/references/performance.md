@@ -1,6 +1,6 @@
 # Performance
 
-Optimize with data, not intuition.
+Optimise with data, not intuition.
 
 ## Measurement First
 
@@ -24,4 +24,4 @@ Optimize with data, not intuition.
 ## Keep It Simple
 
 - Choose simple improvements with clear wins first.
-- Introduce unsafe or complex specialization only with strong benchmark evidence.
+- Introduce unsafe or complex specialisation only with strong benchmark evidence.

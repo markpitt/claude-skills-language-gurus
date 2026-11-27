@@ -2,7 +2,7 @@
 
 ## Baseline
 
-- Target modern PowerShell (`pwsh`) and current stable feature set (7.5+).
+- Target modern PowerShell (`pwsh`) and current LTS feature set (7.6).
 - Use `PSScriptAnalyzer` as the required lint/static-analysis gate.
 - Use `PSResourceGet` (`Install-PSResource`, `Find-PSResource`,
   `Publish-PSResource`) for module/script package workflows.

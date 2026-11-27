@@ -20,7 +20,7 @@ argument parsing. These patterns eliminate the most common failure modes.
 
 ## The Safety Preamble
 
-Every Bash script starts with this — no exceptions:
+Every Bash script starts with this: no exceptions:
 
 ```bash
 #!/usr/bin/env bash
@@ -47,8 +47,8 @@ Exits the script immediately when a command returns a non-zero exit code.
 - Commands in `if` tests: `if cmd; then`
 - Commands in `while`/`until` conditions: `while cmd; do`
 - Commands negated with `!`: `! cmd`
-- Commands connected with `&&`/`||` except the last: `a && b` — `a` failing doesn't exit
-- The last command in a pipeline (pipefail covers this — see below)
+- Commands connected with `&&`/`||` except the last: `a && b`, where `a` failing does not exit
+- The last command in a pipeline (pipefail covers this: see below)
 
 ```bash
 # Safe pattern when you want to check the result yourself
@@ -303,7 +303,7 @@ process_file() {
 
 ## The `local x=$(cmd)` Trap
 
-**Critical bug** — `local` always exits with 0, masking the exit code of `$(cmd)`:
+**Critical bug**: `local` always exits with 0, masking the exit code of `$(cmd)`:
 
 ```bash
 # BAD — set -e will NOT catch the failure of false here
@@ -335,7 +335,7 @@ readonly config
 
 ## IFS Handling
 
-The Internal Field Separator controls word splitting. Modify it locally — never
+The Internal Field Separator controls word splitting. Modify it locally: never
 change the global IFS permanently without restoring it.
 
 ```bash
@@ -361,7 +361,7 @@ read -ra path_parts <<< "$PATH"
 IFS="$old_IFS"
 ```
 
-Reading a file line-by-line (correct pattern — handles lines without trailing newline):
+Reading a file line-by-line (correct pattern: handles lines without trailing newline):
 
 ```bash
 while IFS= read -r line || [[ -n "$line" ]]; do
@@ -463,5 +463,5 @@ readonly SCRIPT_DIR
 source "${SCRIPT_DIR}/../lib/helpers.bash"
 ```
 
-Do **not** use `$0` alone — it reflects how the script was invoked, not where it lives.
-Do **not** use `dirname "$0"` without `cd && pwd` — it gives a relative path.
+Do **not** use `$0` alone: it reflects how the script was invoked, not where it lives.
+Do **not** use `dirname "$0"` without `cd && pwd`: it gives a relative path.

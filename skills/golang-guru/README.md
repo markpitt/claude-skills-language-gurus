@@ -2,10 +2,10 @@
 
 # golang-guru
 
-Enforces Go 1.26 best practices when writing, reviewing, or refactoring Go code. Use when the user asks for Go language help, modules/toolchain setup, concurrency and context patterns, testing and CI quality gates, security hardening, performance profiling, or production service design in Go. Covers modern Go tooling, error-handling discipline, goroutine lifecycle safety, and evidence-driven optimisation. Do NOT use for non-Go languages or generic architecture discussions without concrete Go implementation details.
+Enforces Go 1.27 best practices when writing, reviewing, or refactoring Go code. Use when the user asks for Go language help, modules/toolchain setup, concurrency and context patterns, testing and CI quality gates, security hardening, performance profiling, or production service design in Go. Covers modern Go tooling, error-handling discipline, goroutine lifecycle safety, and evidence-driven optimisation. Do NOT use for non-Go languages or generic architecture discussions without concrete Go implementation details.
 
 - **Entry point:** [SKILL.md](SKILL.md)
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Licence:** Apache-2.0, see [LICENSE](LICENSE)
 
 ## Install
@@ -34,4 +34,4 @@ Loaded on demand, not up front. SKILL.md routes to them.
 ## Part of a larger set
 
 One of the Language gurus skills (`claude-skills-language-gurus`). See the [group's list](../../README.md),
-or every group in [claude-skills](https://github.com/markpitt/claude-skills).
+or every group in [claude-skills](https://markpitt.dev/claude-skills/).

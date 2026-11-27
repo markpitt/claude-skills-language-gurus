@@ -5,7 +5,7 @@ Use Rust-native tooling and enforce a reproducible quality pipeline.
 ## Core Setup
 
 - Install toolchain with `rustup`; prefer stable by default.
-- Ensure required components are installed (for example `rustfmt`, `clippy`).
+- Make sure required components are installed (for example `rustfmt`, `clippy`).
 - For project consistency, use `rust-toolchain.toml` when teams need pinned channel/components.
 - Set `edition` to the latest stable value supported by project constraints.
 - Set `rust-version` in `Cargo.toml` to declare MSRV policy.

@@ -22,7 +22,7 @@
 
 - Smell: using `moduleResolution: bundler` for Node-runtime outputs without
   understanding resulting runtime import requirements
-- Risk: import behavior differs between dev tooling and production runtime
+- Risk: import behaviour differs between dev tooling and production runtime
 - Fix: align `module` + `moduleResolution` with actual execution environment
 
 ## 5) Using ESLint as formatter
@@ -40,5 +40,5 @@
 ## 7) Ignoring promise rejection paths
 
 - Smell: async operations without explicit error handling strategy
-- Risk: hidden failures and unstable runtime behavior
+- Risk: hidden failures and unstable runtime behaviour
 - Fix: handle/rethrow errors intentionally and test failure paths

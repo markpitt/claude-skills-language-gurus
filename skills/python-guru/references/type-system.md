@@ -1,11 +1,11 @@
 # Type System Reference
 
 Modern Python type annotations as of 3.12/3.13. Use `from __future__ import annotations`
-on 3.10–3.13 for forward references; not needed on 3.14+ (deferred by default).
+on 3.10 to 3.13 for forward references; not needed on 3.14+ (deferred by default).
 
 ---
 
-## PEP 695 — Inline Type Parameters (3.12+)
+## PEP 695: Inline Type Parameters (3.12+)
 
 ```python
 # OLD — verbose, pollutes module namespace
@@ -80,7 +80,7 @@ def apply(fn: Callable[[int, str], bool]) -> None: ...
 
 ---
 
-## `Self` — Fluent/Builder Returns (3.11+)
+## `Self`: Fluent/Builder Returns (3.11+)
 
 ```python
 from typing import Self
@@ -101,7 +101,7 @@ def where(self: T, ...) -> T: ...   # verbose, use Self instead
 
 ---
 
-## `@override` — Intentional Overrides (3.12+)
+## `@override`: Intentional Overrides (3.12+)
 
 ```python
 from typing import override
@@ -147,7 +147,7 @@ branch narrowing of `TypeIs` is incorrect for your use case.
 
 ---
 
-## `Protocol` — Structural Subtyping
+## `Protocol`: Structural Subtyping
 
 ```python
 from typing import Protocol, runtime_checkable
@@ -174,7 +174,7 @@ save(MyModel())  # type-checks correctly
 
 ---
 
-## `TypedDict` — Typed Dictionaries
+## `TypedDict`: Typed Dictionaries
 
 ```python
 from typing import TypedDict, Required, NotRequired, ReadOnly  # ReadOnly: 3.13+
@@ -202,7 +202,7 @@ def connect(**kwargs: Unpack[Config]) -> None: ...
 
 ---
 
-## `@dataclass` — Preferred Patterns
+## `@dataclass`: Preferred Patterns
 
 ```python
 from dataclasses import dataclass, field
@@ -237,7 +237,7 @@ class ServiceConfig:
 **Rules:**
 - Always `slots=True` unless you add attributes dynamically
 - Always `frozen=True` for value objects (coordinates, IDs, config)
-- Never use mutable default values — always `field(default_factory=...)`
+- Never use mutable default values: always `field(default_factory=...)`
 
 ---
 
@@ -268,7 +268,7 @@ def area(shape: Shape) -> float:
 
 ---
 
-## `LiteralString` — Injection Prevention (3.11+)
+## `LiteralString`: Injection Prevention (3.11+)
 
 ```python
 from typing import LiteralString
@@ -318,7 +318,7 @@ if TYPE_CHECKING:
 from pathlib import Path
 ```
 
-**Rule:** Use `TCH` ruff rule to automatically flag and fix imports that should be in
+**Rule:** Use `TC` ruff rule to automatically flag and fix imports that should be in
 `TYPE_CHECKING`. This is especially important for heavy imports used only in annotations.
 
 ---

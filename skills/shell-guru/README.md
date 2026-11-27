@@ -5,7 +5,7 @@
 Enforces current shell scripting best practices when writing, reviewing, or refactoring Bash/POSIX sh scripts. Use when the user asks for shell scripting help, Bash/sh code review, idiomatic shell patterns, script portability, debugging, or security guidance. Covers safety options (set -Eeuo pipefail), quoting rules, arrays, error handling, testing (bats-core), tooling (shellcheck, shfmt), security, and anti-pattern elimination. Do NOT use for general system administration tasks unrelated to shell script authorship.
 
 - **Entry point:** [SKILL.md](SKILL.md)
-- **Version:** 1.1.0
+- **Version:** 1.1.1
 - **Licence:** Apache-2.0, see [LICENSE](LICENSE)
 
 ## Install
@@ -33,4 +33,4 @@ Loaded on demand, not up front. SKILL.md routes to them.
 ## Part of a larger set
 
 One of the Language gurus skills (`claude-skills-language-gurus`). See the [group's list](../../README.md),
-or every group in [claude-skills](https://github.com/markpitt/claude-skills).
+or every group in [claude-skills](https://markpitt.dev/claude-skills/).

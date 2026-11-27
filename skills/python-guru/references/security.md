@@ -1,13 +1,13 @@
 # Security Reference
 
 Security rules for Python code. Most of these are caught by `ruff S` (bandit)
-rules — enable them. Apply defence-in-depth: validate at every boundary.
+rules: enable them. Apply defence-in-depth: validate at every boundary.
 
 ---
 
 ## Input Validation
 
-### SQL injection — parameterised queries always
+### SQL injection: parameterised queries always
 
 ```python
 # NEVER: f-string or format into SQL
@@ -27,7 +27,7 @@ def query(sql: LiteralString, params: tuple) -> list:
     return cursor.execute(sql, params).fetchall()
 ```
 
-### t-strings — injection-safe interpolation (3.14+)
+### t-strings: injection-safe interpolation (3.14+)
 
 ```python
 # For SQL, HTML, shell — when a driver/renderer supports Template
@@ -55,7 +55,7 @@ def get_file(filename: str) -> Path:
     return requested
 ```
 
-### HTML/XSS — always escape user content
+### HTML/XSS: always escape user content
 
 ```python
 import html
@@ -256,5 +256,5 @@ uv pip audit --strict
 | Broken access control | Validate ownership at every boundary, not just the entry point |
 | Crypto failures | `cryptography` package; never homebrew crypto |
 | SSRF | Allowlist outbound URLs; validate before `requests.get(user_url)` |
-| Insecure deserialization | Never `pickle.loads(untrusted)`, `yaml.load(untrusted)` |
-| Insufficient logging | Log auth events, errors, anomalies — never the secrets themselves |
+| Insecure deserialisation | Never `pickle.loads(untrusted)`, `yaml.load(untrusted)` |
+| Insufficient logging | Log auth events, errors, anomalies: never the secrets themselves |

@@ -30,9 +30,10 @@ For version/toolchain updates, validate in CI before broad rollout.
 
 ## Notes from current release cycle
 
-- Go 1.26 (released 2026-02-10) continues six-month cadence and compatibility
-  guarantees.
-- `go mod init` behavior now encourages compatibility with currently supported
+- Go 1.27 (released 2026-08-19) is the current release, with generic methods as
+  its headline language change. Go 1.26 (released 2026-02-10) is the other
+  supported release. The six-month cadence and compatibility guarantees continue.
+- `go mod init` behaviour now encourages compatibility with currently supported
   versions by defaulting a lower initial `go` version; teams can still adjust
   via `go get go@version`.
 
@@ -41,4 +42,5 @@ For version/toolchain updates, validate in CI before broad rollout.
 - Toolchains doc: https://go.dev/doc/toolchain
 - Modules reference: https://go.dev/ref/mod
 - Go release history: https://go.dev/doc/devel/release
+- Go 1.27 notes: https://go.dev/doc/go1.27
 - Go 1.26 notes: https://go.dev/doc/go1.26

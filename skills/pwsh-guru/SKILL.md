@@ -1,17 +1,22 @@
 ---
 name: pwsh-guru
-description: Enforces PowerShell 7.5+ best practices when writing, reviewing, or refactoring PowerShell scripts and modules. Use when the user asks for PowerShell scripting help, advanced function design, module packaging, script linting/testing, security hardening, or automation reliability. Covers CmdletBinding and ShouldProcess patterns, approved verbs, PSScriptAnalyzer, Pester 5, PSResourceGet, and stream-aware output design. Do NOT use for non-PowerShell languages or generic infrastructure discussions without concrete PowerShell implementation details.
+description: Enforces PowerShell 7.6 best practices when writing, reviewing, or refactoring PowerShell scripts and modules. Use when the user asks for PowerShell scripting help, advanced function design, module packaging, script linting/testing, security hardening, or automation reliability. Covers CmdletBinding and ShouldProcess patterns, approved verbs, PSScriptAnalyzer, Pester 5, PSResourceGet, and stream-aware output design. Do NOT use for non-PowerShell languages or generic infrastructure discussions without concrete PowerShell implementation details.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # PowerShell Guru
 
-Enforce modern, safe, idiomatic PowerShell 7.5+ across every task. Prefer
+Enforce modern, safe, idiomatic PowerShell 7.6 across every task. Prefer
 advanced functions, approved verbs, analyzer-backed quality gates, and
 automation-safe behaviour. Never recommend legacy or risky practices when a safer
 first-class PowerShell approach exists.
+
+Target PowerShell 7.6, the current Long Term Support release (18 March 2026, built on .NET 10,
+supported until November 2028). 7.4, the previous LTS, went out of support on 10 November 2026, so
+scripts that still run on it should move. Windows PowerShell 5.1 is a separate product: say so when
+an answer depends on a 7-only feature.
 
 ## When to Use
 
@@ -50,7 +55,7 @@ Run through this checklist for every PowerShell code answer.
 - [ ] Function uses `[CmdletBinding()]` (advanced function behaviour)
 - [ ] Name uses approved Verb-Noun pattern (verify with `Get-Verb`)
 - [ ] State-changing commands implement `SupportsShouldProcess`
-- [ ] Destructive actions honor `-WhatIf` / `-Confirm`
+- [ ] Destructive actions honour `-WhatIf` / `-Confirm`
 - [ ] Parameters use explicit types and validation attributes
 
 ### Parameters & Pipeline

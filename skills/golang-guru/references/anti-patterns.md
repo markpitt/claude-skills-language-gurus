@@ -27,7 +27,7 @@ Avoid:
 - SQL built with string formatting/concatenation
 
 Prefer:
-- Parameterized queries/placeholders
+- Parameterised queries/placeholders
 
 ## Testing and CI
 
@@ -44,7 +44,7 @@ Avoid:
 - Micro-optimizing without benchmark/profile evidence
 
 Prefer:
-- Benchmark + `pprof` driven optimization plans
+- Benchmark + `pprof` driven optimisation plans
 
 ## Observability
 
